@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
+  <!-- Background -->
+  <rect width="512" height="512" rx="80" fill="#0f120d"/>
+  <!-- Letter S -->
+  <path
+    d="M336 160 C336 160 320 128 256 128 C192 128 160 168 160 208 C160 248 192 268 256 284 C320 300 352 320 352 360 C352 400 320 384 256 384 C192 384 176 352 176 352"
+    stroke="#a8ff57"
+    stroke-width="36"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    fill="none"
+  />
+  <!-- Dot -->
+  <circle cx="368" cy="152" r="24" fill="#a8ff57"/>
+</svg>
+

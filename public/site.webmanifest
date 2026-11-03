@@ -1,0 +1,23 @@
+{
+  "name": "Sreehari — Web & Python Developer",
+  "short_name": "Sreehari",
+  "description": "Portfolio of Sreehari, a Python and Web Developer building modern digital experiences.",
+  "start_url": "/sreehari-portfolio/",
+  "display": "standalone",
+  "background_color": "#0f120d",
+  "theme_color": "#0f120d",
+  "icons": [
+    {
+      "src": "/sreehari-portfolio/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/sreehari-portfolio/apple-touch-icon.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml"
+    }
+  ]
+}
+
