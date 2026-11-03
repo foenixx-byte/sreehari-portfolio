@@ -1279,7 +1279,7 @@ ul {
 }
 
 .statement > span {
-  color: #8c8f89;
+  color: #8c8f8937;
   opacity: 0.85;
   transition: color 140ms ease, opacity 140ms ease;
 }
@@ -1296,7 +1296,7 @@ ul {
 }
 
 .statement .statement-accent {
-  color: #8cb845;
+  color: #8cb8451f;
 }
 
 .statement .statement-accent.is-lit {
