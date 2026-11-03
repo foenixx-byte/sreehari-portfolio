@@ -80,7 +80,7 @@ export default function Header({ layout }: HeaderProps) {
             ))}
           </nav>
           <div className="mobile-menu-bottom micro">
-            <a href="mailto:hello@sreehari.dev">hello@sreehari.dev</a>
+            <a href="mailto:sreeharip209@gmail.com">sreeharip209@gmail.com</a>
             <span>Option {layout.toUpperCase()} — Kerala, India — {time}</span>
           </div>
         </div>

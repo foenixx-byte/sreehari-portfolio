@@ -94,7 +94,7 @@ export function EducationExperience() {
                   key={certificate.title}
                   target="_blank"
                   rel="noreferrer"
-                  aria-label={`View ${certificate.title} certificate PDF (opens in a new tab)`}
+                  aria-label={`View ${certificate.title} certificate, ${certificate.year}`}
                 >
                   <div className="certification-card-top">
                     <span className="certification-number micro">0{index + 1}</span>
@@ -220,8 +220,8 @@ export function Footer({ inquiry, variant }: { inquiry: string; variant: LayoutV
             <a href="#contact">Contact</a>
           </nav>
         </div>
-        <a className="footer-b-name" href="#top" data-reveal data-cursor="Top" aria-label="Sreehari, back to top">
-          PORTFOLIO <span>↑</span>
+        <a className="footer-b-name" href="#top" data-reveal data-cursor="Top" aria-label="PORTFOLIO — back to top">
+          PORTFOLIO <span aria-hidden="true">↑</span>
         </a>
         {footerContent}
       </footer>

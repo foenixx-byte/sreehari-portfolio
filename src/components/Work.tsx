@@ -18,7 +18,7 @@ function ProjectDetails({ project }: { project: Project }) {
           {project.features.map((item) => <li key={item}>{item}<span>↗</span></li>)}
         </ul>
       </div>
-      <a className="text-link" href={`mailto:hello@sreehari.dev?subject=${encodeURIComponent(`A build like ${project.title}`)}`}>
+      <a className="text-link" href={`mailto:sreeharip209@gmail.com?subject=${encodeURIComponent(`A build like ${project.title}`)}`}>
         Discuss a similar build <span>↗</span>
       </a>
     </div>

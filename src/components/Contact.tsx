@@ -20,7 +20,7 @@ export default function Contact({ inquiry }: { inquiry: string }) {
     const body = encodeURIComponent(
       `Hi Sreehari,\n\n${message}\n\nProject type: ${project}\nFrom: ${name}\nReply to: ${email}`,
     );
-    window.location.href = `mailto:hello@sreehari.dev?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:sreeharip209@gmail.com?subject=${subject}&body=${body}`;
   };
 
   return (

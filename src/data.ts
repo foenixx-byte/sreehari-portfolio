@@ -24,20 +24,7 @@ export const images = {
 };
 
 export const projects: Project[] = [
-  {
-    slug: "aeroscan-pro",
-    title: "AeroScan Pro",
-    year: "2026",
-    kind: "AI computer vision app",
-    note: "(Personal build)",
-    color: "#1a2e3b",
-    image: images.aeroscanCover,
-    imageAlt: "AeroScan Pro real-time air quality detection interface",
-    description:
-      "An AI-powered computer vision application that performs real-time indoor air quality scans and particle detection — identifying airborne allergens, mold, dust and pollutants in under 2 seconds.",
-    stack: ["Python", "TensorFlow", "Keras", "OpenCV", "Flask", "Kivy", "FPDF2"],
-    features: ["10 FPS live camera analysis", "40+ environment classifications", "Automated PDF health reports"],
-  },
+  
   {
     slug: "hirewave",
     title: "HireWave",
@@ -79,6 +66,20 @@ export const projects: Project[] = [
       "A full-stack restaurant discovery and vendor management platform connecting local diners with authentic eateries — featuring smart search, owner portals and end-to-end authentication.",
     stack: ["Next.js 15", "React 19", "TypeScript", "Supabase", "Tailwind CSS v4", "Zod"],
     features: ["Real-time dish & cuisine search", "Vendor onboarding portal", "E2E tested with Playwright"],
+  },
+  {
+    slug: "aeroscan-pro",
+    title: "AeroScan Pro",
+    year: "2026",
+    kind: "AI computer vision app",
+    note: "(Personal build)",
+    color: "#1a2e3b",
+    image: images.aeroscanCover,
+    imageAlt: "AeroScan Pro real-time air quality detection interface",
+    description:
+      "An AI-powered computer vision application that performs real-time indoor air quality scans and particle detection — identifying airborne allergens, mold, dust and pollutants in under 2 seconds.",
+    stack: ["Python", "TensorFlow", "Keras", "OpenCV", "Flask", "Kivy", "FPDF2"],
+    features: ["10 FPS live camera analysis", "40+ environment classifications", "Automated PDF health reports"],
   },
 ];
 

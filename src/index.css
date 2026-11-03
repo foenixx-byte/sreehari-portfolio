@@ -1,4 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&display=swap");
 @import "tailwindcss";
 
 :root {
@@ -712,7 +711,7 @@ ul {
 
 .project-item {
   border-bottom: 1px solid var(--line);
-  color: #6f6c66;
+  color: #9e9a93;
   scroll-margin-top: calc(var(--header-h) + 1rem);
   transition: color 400ms ease;
 }
@@ -1244,7 +1243,7 @@ ul {
 .certification-year {
   margin-top: auto;
   padding-top: 1rem;
-  color: #77716c;
+  color: #a39e99;
   font-weight: 700;
 }
 
@@ -1280,8 +1279,14 @@ ul {
 }
 
 .statement > span {
-  opacity: 0.16;
-  transition: opacity 100ms linear;
+  color: #8c8f89;
+  opacity: 0.85;
+  transition: color 140ms ease, opacity 140ms ease;
+}
+
+.statement > span.is-lit {
+  color: var(--paper);
+  opacity: 1;
 }
 
 .statement .statement-italic {
@@ -1291,6 +1296,10 @@ ul {
 }
 
 .statement .statement-accent {
+  color: #8cb845;
+}
+
+.statement .statement-accent.is-lit {
   color: var(--accent);
 }
 
@@ -1489,8 +1498,12 @@ ul {
   justify-content: space-between;
   gap: 1rem;
   margin-top: 3.5rem;
-  color: #716e68;
+  color: #a39e99;
   font-size: 0.58rem;
+}
+
+.footer-legal span {
+  color: #a39e99;
 }
 
 /* Responsive */

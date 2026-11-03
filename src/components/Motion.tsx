@@ -207,7 +207,11 @@ export function ScrollStatement() {
 
   useEffect(() => {
     if (reduced) {
-      words.current.forEach((word) => word?.style.setProperty("opacity", "1"));
+      words.current.forEach((word) => {
+        if (!word) return;
+        word.classList.add("is-lit");
+        word.style.removeProperty("opacity");
+      });
       return;
     }
     let frame = 0;
@@ -221,7 +225,12 @@ export function ScrollStatement() {
       words.current.forEach((word, index) => {
         if (!word) return;
         const amount = Math.min(1, Math.max(0, lit - index));
-        word.style.opacity = String(0.16 + amount * 0.84);
+        if (amount >= 0.5) {
+          word.classList.add("is-lit");
+        } else {
+          word.classList.remove("is-lit");
+        }
+        word.style.opacity = String(0.85 + amount * 0.15);
       });
     };
     const requestUpdate = () => {
