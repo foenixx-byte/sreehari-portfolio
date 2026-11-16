@@ -597,7 +597,7 @@
 
 @media (max-width: 640px) {
   .menu-toggle {
-    margin-left: 0.5rem;
+    margin-left: auto;
   }
 
   .work-b-grid {
@@ -689,5 +689,79 @@
   .footer-b-name {
     justify-content: flex-start;
     font-size: 20vw;
+  }
+}
+
+/* Learning: an open editorial timeline and a paper certificate index. */
+.learning-section { padding: clamp(5rem, 9vw, 9rem) var(--gutter); border-top: 1px solid var(--line); }
+.learning-heading { margin-bottom: 4rem; }
+.learning-heading h2, .skill-heading h3 { font-size: clamp(3rem, 6.5vw, 6.5rem); line-height: .98; letter-spacing: -.055em; margin: 1.5rem 0; }
+.learning-heading h2 em, .skill-heading h3 em { font-weight: 350; color: #a9b0a2; }
+.learning-heading > p:last-child { color: var(--muted); max-width: 32rem; }
+.learning-layout { display: grid; grid-template-columns: 1.15fr 1fr; gap: clamp(2rem, 6vw, 7rem); align-items: start; }
+.learning-label { padding-bottom: 1.5rem; border-bottom: 1px solid var(--line); }
+.learning-entry { padding: 2rem 0 2.5rem 1.5rem; border-left: 1px solid var(--line); position: relative; }
+.learning-entry::before { content: ''; width: 9px; height: 9px; border-radius: 50%; background: var(--accent); position: absolute; left: -5px; top: 2.3rem; }
+.learning-meta { display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; color: var(--accent); }
+.learning-now { color: var(--paper); border: 1px solid var(--line); border-radius: 2rem; padding: .3rem .65rem; font-size: .65rem; }
+.learning-entry h3 { font-size: clamp(1.6rem, 2.6vw, 2.5rem); line-height: 1.12; letter-spacing: -.035em; margin: 1.2rem 0 .8rem; }
+.learning-institution { color: #d1d4cc; font-size: 1rem; }
+.learning-description { color: #98a196; font-size: .95rem; line-height: 1.7; margin-top: 1rem; max-width: 35rem; }
+.learning-tags { display: flex; flex-wrap: wrap; gap: .5rem; list-style: none; padding: 0; margin: 1.5rem 0 0; }
+.learning-tags li { font-size: .7rem; border-bottom: 1px solid #505a47; padding-bottom: .3rem; margin-right: .5rem; color: #b9c4af; }
+.learning-certificates { background: #eff0e7; color: #1b231b; padding: clamp(1.25rem, 3vw, 3rem); border-radius: 3px; }
+.learning-certificates .learning-label { border-color: #c6cbbc; }
+.learning-certificates > h3 { font-size: clamp(2.3rem, 4vw, 4rem); line-height: 1; letter-spacing: -.045em; margin: 2rem 0; }
+.learning-certificates > h3 em { font-weight: 350; }
+.learning-certificate { display: grid; grid-template-columns: 1.4rem 1fr 1.5rem; gap: .75rem; padding: 1.5rem 0; border-top: 1px solid #c6cbbc; text-decoration: none; color: inherit; transition: background .2s; }
+.learning-certificate:hover { background: #e1e5d5; }
+.learning-certificate:focus-visible { outline: 2px solid #263b14; outline-offset: 5px; }
+.learning-certificate-index { color: #6a745e; padding-top: .15rem; }
+.learning-certificate-meta { display: block; font-size: .65rem; color: #5b6752; }
+.learning-certificate strong { display: block; font-size: 1.2rem; line-height: 1.2; margin: .6rem 0; }
+.learning-issuer { font-size: .8rem; color: #58624f; }
+.learning-arrow { font-size: 1.5rem; transition: transform .2s; }
+.learning-certificate:hover .learning-arrow { transform: translate(3px, -3px); }
+.learning-note { color: #5b6752; margin-top: 2rem; font-size: .65rem; }
+.statement > span { opacity: .45; }
+.statement > span.is-lit { opacity: .8; }
+.skill-playground { margin-top: clamp(5rem, 9vw, 9rem); scroll-margin-top: 7rem; }
+.skill-heading { display: flex; justify-content: space-between; align-items: end; gap: 2rem; margin-bottom: 2.5rem; }
+.skill-heading > p { max-width: 22rem; color: #a6afa1; font-size: 1rem; line-height: 1.7; padding-bottom: 1.5rem; }
+.skill-arena { height: 390px; position: relative; overflow: hidden; border: 1px solid #3a4633; border-radius: 1rem; background: #151d16; isolation: isolate; }
+.skill-pill { position: absolute; left: 0; top: 0; visibility: hidden; display: flex; align-items: center; gap: .5rem; min-height: 44px; max-width: calc(100% - 16px); padding: .55rem .8rem; border: 1px solid #d8dcd1; border-radius: 999px; background: #fff; color: #182018; font: inherit; font-size: clamp(.75rem, 1.3vw, .95rem); font-weight: 600; white-space: nowrap; cursor: grab; touch-action: none; user-select: none; box-shadow: 0 4px 0 #0003; will-change: transform; }
+.skill-pill:active { cursor: grabbing; z-index: 2; }
+.skill-pill[aria-pressed="true"] { border-color: #baff36; box-shadow: 0 0 0 2px #baff36; }
+.skill-pill:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; z-index: 3; }
+.skill-pill-icon { display: flex; align-items: center; gap: .25rem; flex-shrink: 0; pointer-events: none; }
+.skill-pill-icon img { display: block; width: 20px; height: 20px; object-fit: contain; pointer-events: none; }
+.skill-pill-grip { color: #79816f; }
+.skill-caption { display: flex; justify-content: space-between; gap: 1rem; color: #a6afa1; padding-top: 1rem; min-height: 4rem; font-size: .85rem; }
+.skill-arena.is-static { display: flex; flex-wrap: wrap; align-content: center; gap: 1rem; padding: 1.5rem; height: auto; min-height: 350px; }
+.skill-arena.is-static .skill-pill { position: relative; visibility: visible !important; transform: none !important; touch-action: auto; cursor: pointer; }
+@media (max-width: 760px) {
+  .learning-layout { grid-template-columns: 1fr; gap: 2rem; }
+  .learning-heading { margin-bottom: 2.5rem; }
+  .skill-heading { display: block; }
+  .skill-heading > p { max-width: 30rem; padding-bottom: 0; }
+  .skill-arena { height: 420px; }
+  .skill-pill { gap: .4rem; padding: .5rem .65rem; min-height: 42px; }
+  .skill-caption { flex-direction: column; }
+}
+
+.skill-arena .skill-pill { position: absolute; }
+.skill-arena.is-static .skill-pill { position: relative; }
+
+.skill-arena .skill-pill { transition: none; }
+.skill-arena .skill-pill::before { display: none; }
+
+.skill-motion-enable { background: transparent; color: var(--paper); border: 1px solid var(--line); border-radius: 2rem; padding: .5rem .8rem; cursor: pointer; white-space: nowrap; align-self: start; font-size: .75rem; }
+
+@media (min-width: 1024px) {
+  .skill-arena,
+  .skill-caption {
+    width: 82%;
+    max-width: 1000px;
+    margin-inline: auto;
   }
 }

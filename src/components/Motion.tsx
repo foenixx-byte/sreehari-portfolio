@@ -230,7 +230,7 @@ export function ScrollStatement() {
         } else {
           word.classList.remove("is-lit");
         }
-        word.style.opacity = String(0.85 + amount * 0.15);
+        word.style.opacity = String(0.45 + amount * 0.35);
       });
     };
     const requestUpdate = () => {

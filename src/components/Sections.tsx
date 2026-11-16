@@ -1,114 +1,41 @@
-import { useRef, useState } from "react";
-import type { KeyboardEvent as ReactKeyboardEvent, PointerEvent as ReactPointerEvent } from "react";
+import { useState } from "react";
 import { certifications, education, services } from "../data";
 import type { LayoutVariant } from "../data";
-import { useReducedMotion } from "../hooks";
 import Toolkit from "./Toolkit";
 
 export function EducationExperience() {
-  const reduced = useReducedMotion();
-  const scroller = useRef<HTMLDivElement>(null);
-  const drag = useRef<{ x: number; left: number; moved: boolean } | null>(null);
-
-  const onPointerDown = (event: ReactPointerEvent<HTMLDivElement>) => {
-    if (event.pointerType === "touch" || event.button !== 0 || !scroller.current) return;
-    drag.current = { x: event.clientX, left: scroller.current.scrollLeft, moved: false };
-  };
-  const onPointerMove = (event: ReactPointerEvent<HTMLDivElement>) => {
-    if (!drag.current || !scroller.current) return;
-    const distance = event.clientX - drag.current.x;
-    if (Math.abs(distance) > 4 && !drag.current.moved) {
-      drag.current.moved = true;
-      scroller.current.classList.add("is-dragging");
-      scroller.current.setPointerCapture(event.pointerId);
-    }
-    if (drag.current.moved) scroller.current.scrollLeft = drag.current.left - distance;
-  };
-  const endDrag = () => {
-    drag.current = null;
-    scroller.current?.classList.remove("is-dragging");
-  };
-  const onKeyDown = (event: ReactKeyboardEvent<HTMLDivElement>) => {
-    if (!scroller.current || !["ArrowLeft", "ArrowRight"].includes(event.key)) return;
-    event.preventDefault();
-    scroller.current.scrollBy({
-      left: (event.key === "ArrowRight" ? 1 : -1) * Math.min(720, scroller.current.clientWidth * 0.8),
-      behavior: reduced ? "auto" : "smooth",
-    });
-  };
-
   return (
-    <section className="credentials-section" id="education" aria-labelledby="credentials-title">
-      <div className="credentials-heading" data-reveal>
-        <div>
-          <p className="micro credential-eyebrow">(The path so far)</p>
-          <h2 id="credentials-title">Education &amp; certifications</h2>
+    <section className="learning-section" id="education" aria-labelledby="credentials-title">
+      <header className="learning-heading">
+        <p className="micro accent">(The path so far / 01)</p>
+        <h2 id="credentials-title">Always a student.<br /><em>Always building.</em></h2>
+        <p>Education &amp; certifications — the foundations behind my work.</p>
+      </header>
+      <div className="learning-layout">
+        <div className="learning-studies">
+          <p className="micro learning-label">01 — Formal education</p>
+          {education.map((item, index) => (
+            <article className="learning-entry" key={item.period}>
+              <div className="learning-meta micro"><span>{item.period}</span>{index === 0 && <span className="learning-now">In progress</span>}</div>
+              <h3>{item.qualification}</h3>
+              <p className="learning-institution">{item.institution}</p>
+              <p className="learning-description">{item.details}</p>
+              <ul className="learning-tags">{item.subjects.map(subject => <li key={subject}>{subject}</li>)}</ul>
+            </article>
+          ))}
         </div>
-      </div>
-      <div
-        className="credentials-scroller"
-        ref={scroller}
-        tabIndex={0}
-        role="region"
-        aria-label="Education and certifications. Scroll horizontally to explore."
-        data-lenis-prevent
-        onPointerDown={onPointerDown}
-        onPointerMove={onPointerMove}
-        onPointerUp={endDrag}
-        onPointerCancel={endDrag}
-        onKeyDown={onKeyDown}
-      >
-        <div className="credentials-track">
-          <section className="education-panel" aria-labelledby="education-title">
-            <div className="credential-panel-heading">
-              <span className="micro">(01 / Education)</span>
-              <h3 id="education-title">Where I learned to build.</h3>
-            </div>
-            <ol className="education-timeline">
-              {education.map((item, index) => (
-                <li className={index === 0 ? "education-entry current" : "education-entry"} key={item.period}>
-                  <article className="education-card">
-                    <p className="micro credential-period">{item.period}</p>
-                    <h4>{item.qualification}</h4>
-                    <p className="education-institution">{item.institution}</p>
-                    <p className="education-description">{item.details}</p>
-                    <ul className="education-tags" aria-label="Subjects">
-                      {item.subjects.map((subject) => <li key={subject}>{subject}</li>)}
-                    </ul>
-                  </article>
-                </li>
-              ))}
-            </ol>
-          </section>
-
-          <section className="certifications-panel" aria-labelledby="certifications-title">
-            <div className="credential-panel-heading">
-              <span className="micro">(02 / Certifications)</span>
-              <h3 id="certifications-title">Learning beyond the classroom.</h3>
-            </div>
-            <div className="certification-grid">
-              {certifications.map((certificate, index) => (
-                <a
-                  className="certification-card"
-                  href={certificate.document}
-                  key={certificate.title}
-                  target="_blank"
-                  rel="noreferrer"
-                  aria-label={`View ${certificate.title} certificate, ${certificate.year}`}
-                >
-                  <div className="certification-card-top">
-                    <span className="certification-number micro">0{index + 1}</span>
-                    <span className="certification-category micro">{certificate.category}</span>
-                  </div>
-                  <h4>{certificate.title}</h4>
-                  <p>{certificate.issuer}</p>
-                  <span className="certification-year micro">{certificate.year}</span>
-                  <span className="certification-open micro">View certificate <span aria-hidden="true">↗</span></span>
-                </a>
-              ))}
-            </div>
-          </section>
-        </div>
+        <aside className="learning-certificates" aria-labelledby="certifications-title">
+          <p className="micro learning-label">02 — Independent learning</p>
+          <h3 id="certifications-title">Beyond the<br /><em>classroom.</em></h3>
+          {certifications.map((certificate, index) => (
+            <a className="learning-certificate" key={certificate.title} href={certificate.document} target="_blank" rel="noreferrer" aria-label={`View ${certificate.title} certificate (opens in a new tab)`}>
+              <span className="micro learning-certificate-index">0{index + 1}</span>
+              <span><span className="micro learning-certificate-meta">{certificate.category} / {certificate.year}</span><strong>{certificate.title}</strong><span className="learning-issuer">{certificate.issuer}</span></span>
+              <span className="learning-arrow" aria-hidden="true">↗</span>
+            </a>
+          ))}
+          <p className="micro learning-note">A little more curious, every day.</p>
+        </aside>
       </div>
     </section>
   );
